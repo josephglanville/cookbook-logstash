@@ -19,3 +19,8 @@ when 'dpkg'
 else
   fail "Unsupported Logstash installation method"
 end
+
+cookbook_file '/etc/logrotate.d/logstash' do
+  source 'logstash.logrotate'
+  mode 0644
+end

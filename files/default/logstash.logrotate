@@ -1,0 +1,16 @@
+/var/log/logstash/*.log{
+    daily
+    size=50M
+    missingok
+    rotate 2
+    compress
+    notifempty
+    copytruncate
+     prerotate
+        stop logstash-central
+     endscript
+
+     postrotate
+        start logstash-central
+     endscript
+}
